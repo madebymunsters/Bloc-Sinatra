@@ -1,0 +1,28 @@
+User
+  name
+  email
+  username
+  password
+  child's name
+  child's birthdate
+  child's birthplace
+  facebook_userid
+  
+Post
+  user_id
+  photo_id
+  video_id
+  title
+  body
+  published_date
+  published_time
+
+Comment
+  username
+  comment
+  
+Settings
+  user_id
+  facebook_userid
+  friends_list
+  
