@@ -3,13 +3,18 @@ User
   email
   username
   password
-  child's name
-  child's birthdate
-  child's birthplace
   facebook_userid
+  childrens_names
+  
+Child
+  child_name
+  child_birthdplace
+  child_birthdate
+  posts
   
 Post
   user_id
+  child_name
   photo_id
   video_id
   title
@@ -20,6 +25,8 @@ Post
 Comment
   username
   comment
+  comment_time
+  comment_date
   
 Settings
   user_id
