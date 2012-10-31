@@ -1,35 +1,49 @@
 User
-  name
-  email
-  username
-  password
-  facebook_userid
-  childrens_names
+  has_many :children
+  has_many :posts, :through => child
+  has_one :name
+  has_one :email
+  has_one :username
+  has_one :password
+  has_many :friends
   
 Child
-  child_name
-  child_birthdplace
-  child_birthdate
-  posts
+  belongs_to :user
+  has_many :posts
+  has_one :name
+  has_one :birth_place
+  has_one :birth_date
   
 Post
-  user_id
-  child_name
-  photo_id
-  video_id
-  title
-  body
-  published_date
-  published_time
+  belongs_to :child
+  has_one :user, :through => child
+  has_many :comments
+  has_many :images
+  has_one :video
+  has_one :title
+  has_one :body
+  has_one :published_date
+  has_one :published_time
 
 Comment
-  username
-  comment
-  comment_time
-  comment_date
+  belongs_to :post
+  belongs_to :user
+  has_one :published_date
+  has_one :published_time
   
+Image 
+  belongs_to :post
+  has_one :child, :through => post
+  has_one :title, :through => post
+  
+Video
+  belongs_to :post
+  has_one :child, :through => post
+  has_one :title, :through => post
+
 Settings
-  user_id
-  facebook_userid
-  friends_list
+  belongs_to :user
+  
+Friend
+  belongs_to :user
   
