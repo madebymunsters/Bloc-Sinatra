@@ -1,49 +1,37 @@
 User
   has_many :children
-  has_many :posts, :through => child
-  has_one :name
-  has_one :email
-  has_one :username
-  has_one :password
-  has_many :friends
+  has_many :posts, :through => children
+  name
+  email
+  username
+  password
   
 Child
   belongs_to :user
   has_many :posts
-  has_one :name
-  has_one :birth_place
-  has_one :birth_date
+  name
+  birth_place
+  birth_date
+  password
   
 Post
   belongs_to :child
   has_one :user, :through => child
   has_many :comments
   has_many :images
-  has_one :video
-  has_one :title
-  has_one :body
-  has_one :published_date
-  has_one :published_time
+  video_url
+  title
+  body
 
 Comment
   belongs_to :post
   belongs_to :user
-  has_one :published_date
-  has_one :published_time
+  body
   
 Image 
   belongs_to :post
-  has_one :child, :through => post
-  has_one :title, :through => post
-  
-Video
-  belongs_to :post
-  has_one :child, :through => post
-  has_one :title, :through => post
+  file_url
+  order
 
 Settings
   belongs_to :user
-  
-Friend
-  belongs_to :user
-  
